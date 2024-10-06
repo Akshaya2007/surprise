@@ -3,6 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>replit</title>
+  <title> Surprise </title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+<body>
+  <div class="question-container">
+    <h1>Do you want to proceed?</h1>
+    <!-- "Yes" button (form-based navigation) -->
+    <form action="next-page.html">
+      <button type="submit" class="btn">Yes</button>
+    </form>
+  <!-- "No" button to show hidden popup -->
+    <button class="btn" id="noBtn" type="button">No</button>
+ <!-- Popup (initially hidden, shown using CSS when "No" is clicked) -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <p>You clicked "No"!</p>
+        <a href="#" class="close-btn">Close</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
