@@ -1,47 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Question Page</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Page</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="question-container">
-        <h1>Do you want to proceed?</h1>
+  <div class="question-container">
+    <h1>Do you want to proceed?</h1>
 
-        <!-- "Yes" button (form-based navigation) -->
-        <form action="when.html">
-            <button type="submit" class="btn">Yes</button>
-        </form>
+    <!-- "Yes" button (form-based navigation) -->
+    <form action="next-page.html">
+      <button type="submit" class="btn">Yes</button>
+    </form>
 
-        <!-- "No" button to show the popup -->
-        <button id="noButton" class="btn">No</button>
+    <!-- "No" button to show hidden popup -->
+    <button class="btn" id="noBtn" type="button">No</button>
 
-        <!-- Popup for "No" response -->
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <p> Okay &#128542;</p>
-                <a href="#" class="close-btn">Close</a>
-            </div>
-        </div>
+    <!-- Popup (initially hidden, shown using CSS when "No" is clicked) -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <p>You clicked "No"!</p>
+        <a href="#" class="close-btn">Close</a>
+      </div>
     </div>
-
-    <script>
-        // Handle the "No" button click to show the popup
-        const noButton = document.getElementById('noButton');
-        const popup = document.getElementById('popup');
-        const closeBtn = document.querySelector('.close-btn');
-
-        noButton.addEventListener('click', function() {
-            popup.style.display = 'flex'; // Show popup
-        });
-
-        // Close the popup when the close button is clicked
-        closeBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default link behavior
-            popup.style.display = 'none'; // Hide the popup
-        });
-    </script>
+  </div>
 </body>
 </html>
