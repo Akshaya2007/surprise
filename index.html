@@ -10,8 +10,13 @@
     <div class="question-container">
         <h1>Do you want to proceed?</h1>
 
-        <!-- Slider to indicate Yes or No -->
-        <input type="range" min="0" max="1" step="1" value="0" class="slider" id="decisionSlider">
+        <!-- "Yes" button (form-based navigation) -->
+        <form action="when.html">
+            <button type="submit" class="btn">Yes</button>
+        </form>
+
+        <!-- "No" button to show the popup -->
+        <button id="noButton" class="btn">No</button>
 
         <!-- Popup for "No" response -->
         <div id="popup" class="popup">
@@ -23,24 +28,19 @@
     </div>
 
     <script>
-        // Handle slider input to redirect or show popup
-        const slider = document.getElementById('decisionSlider');
+        // Handle the "No" button click to show the popup
+        const noButton = document.getElementById('noButton');
         const popup = document.getElementById('popup');
         const closeBtn = document.querySelector('.close-btn');
 
-        slider.addEventListener('input', function() {
-            if (this.value == '1') {
-                window.location.href = 'when.html'; // Redirect to the next page
-            } else {
-                popup.style.display = 'flex'; // Show popup
-            }
+        noButton.addEventListener('click', function() {
+            popup.style.display = 'flex'; // Show popup
         });
 
         // Close the popup when the close button is clicked
         closeBtn.addEventListener('click', function(e) {
             e.preventDefault(); // Prevent default link behavior
             popup.style.display = 'none'; // Hide the popup
-            slider.value = '0'; // Reset slider to "No" position
         });
     </script>
 </body>
