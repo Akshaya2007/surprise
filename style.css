@@ -1,1 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.yes-button {
+    background-color: #007BFF; /* Blue */
+}
+
+.yes-button:hover {
+    background-color: #0056b3; /* Darker Blue */
+}
+
+.no-button {
+    background-color: #dc3545; /* Red */
+}
+
+.no-button:hover {
+    background-color: #c82333; /* Darker Red */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffcc00; /* Yellow */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    text-align: center;
+}
+
+.popup:target {
+    display: block; /* Show popup when targeted */
+}
+
+.close-popup {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .button {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .popup {
+        width: 80%;
+    }
+}
 
