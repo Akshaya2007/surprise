@@ -1,27 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Surprise </title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
 </head>
 <body>
-  <div class="question-container">
-    <h1>Do you want to proceed?</h1>
-    <!-- "Yes" button (form-based navigation) -->
-    <form action="when.html">
-      <button type="submit" class="btn">Yes</button>
-    </form>
-  <!-- "No" button to show hidden popup -->
-    <a href="#popup" class="btn">No</a>
- <!-- Popup (initially hidden, shown using CSS when "No" is clicked) -->
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <p> Sad &#128542; </p>
-        <a href="#" class="close-btn">Close</a>
-      </div>
+    <div class="question-container">
+        <h1>Do you want to proceed?</h1>
+
+        <!-- Slider to indicate Yes or No -->
+        <input type="range" min="0" max="1" step="1" value="0" class="slider" id="decisionSlider">
+
+        <!-- Popup for "No" response -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <p> Okay &#128542;</p>
+                <a href="#" class="close-btn">Close</a>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <script>
+        // Handle slider input to redirect or show popup
+        const slider = document.getElementById('decisionSlider');
+        const popup = document.getElementById('popup');
+        const closeBtn = document.querySelector('.close-btn');
+
+        slider.addEventListener('input', function() {
+            if (this.value == '1') {
+                window.location.href = 'when.html'; // Redirect to the next page
+            } else {
+                popup.style.display = 'flex'; // Show popup
+            }
+        });
+
+        // Close the popup when the close button is clicked
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            popup.style.display = 'none'; // Hide the popup
+            slider.value = '0'; // Reset slider to "No" position
+        });
+    </script>
 </body>
 </html>
